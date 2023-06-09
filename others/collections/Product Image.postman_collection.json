@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "3fecb386-5662-4e49-98e4-06440cac32f0",
+		"name": "Product Image",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19494926",
+		"_collection_link": "https://lunar-resonance-652187.postman.co/workspace/appStoreApi~59a5bbec-5c32-48ff-84b3-7ccada3822ab/collection/19494926-3fecb386-5662-4e49-98e4-06440cac32f0?action=share&creator=19494926&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "List Images",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "http://127.0.0.1:8000/api/user/o/token/",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "Redragon2023*",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "pruebausuariodiferente",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Usuario definitio",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "Bn9WUGba9Elku6kJFezIXNj99GRvwih73JsrxVryBiDmUTBrERiFbE5RwL7eIt9emYeKyXDLYSRilktBdfR2dC731u6YNayEcwZmU8YowK1Y83HDaENEWmNiBEj70PiQ",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "rNGWyc3bxlClZ3qYzuPsCkCK5EhcsLnr5AZC9uG6",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "password_credentials",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/product/images/?product=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"product",
+						"images",
+						""
+					],
+					"query": [
+						{
+							"key": "product",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Si se pasa como parametro el id de producto se hace un filtrado por el producto"
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Image Product",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "http://127.0.0.1:8000/api/user/o/token/",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "Redragon2023*",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "pruebausuariodiferente",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Usuario definitio",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "Bn9WUGba9Elku6kJFezIXNj99GRvwih73JsrxVryBiDmUTBrERiFbE5RwL7eIt9emYeKyXDLYSRilktBdfR2dC731u6YNayEcwZmU8YowK1Y83HDaENEWmNiBEj70PiQ",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "rNGWyc3bxlClZ3qYzuPsCkCK5EhcsLnr5AZC9uG6",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "password_credentials",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/braya/Downloads/download.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/product/images/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"product",
+						"images",
+						""
+					]
+				},
+				"description": "Si se pasa como parametro el id de producto se hace un filtrado por el producto"
+			},
+			"response": []
+		}
+	]
+}

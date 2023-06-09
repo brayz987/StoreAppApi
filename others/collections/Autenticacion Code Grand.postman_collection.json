@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "8272862e-b18c-4ed7-b6c9-ee693751d1b4",
+		"name": "Autenticacion Code Grand",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19494926",
+		"_collection_link": "https://lunar-resonance-652187.postman.co/workspace/appStoreApi~59a5bbec-5c32-48ff-84b3-7ccada3822ab/collection/19494926-8272862e-b18c-4ed7-b6c9-ee693751d1b4?action=share&creator=19494926&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Get Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/o/authorize/?response_type=code&code_challenge=WR5t5d2fi8uOszcJ2Te1Usrq7Zy5j--X6GnHpmaBS7E&code_challenge_method=S256&client_id=yqQAQwOFOq3VNjMagV7yotIbs9cC6FcLvKvuwDGM&redirect_uri=http://127.0.0.1:8000/user/o/noexist/callback",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"o",
+						"authorize",
+						""
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "code_challenge",
+							"value": "WR5t5d2fi8uOszcJ2Te1Usrq7Zy5j--X6GnHpmaBS7E"
+						},
+						{
+							"key": "code_challenge_method",
+							"value": "S256"
+						},
+						{
+							"key": "client_id",
+							"value": "yqQAQwOFOq3VNjMagV7yotIbs9cC6FcLvKvuwDGM"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8000/user/o/noexist/callback"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token Code Grand",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "yqQAQwOFOq3VNjMagV7yotIbs9cC6FcLvKvuwDGM",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "6N4cqylgoUeCsL3MlgpG0Jdu02B2AXaqBKK50AQ1T5OPqcnkk5UACFADnAIbMxJk3ihJLK74NzmfaI6Sw6m73wkojYPhExLGb5LAGsWluDODa6ZZ7zIxwZQSdlzuxxZQ",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "LLDY0F2j5stJAJzuROE6xcWmC5zKZi",
+							"type": "text"
+						},
+						{
+							"key": "code_verifier",
+							"value": "VjM3SkZGWUEwUDJMU1lHTUw4QlRNQUJEWjNDTjdQS1lPTkwyWVRPWUQ1RE1GUkc1UUlVUzlXMUJJQ1FQMUg4S0U5Q0lIMjI4SFY5VlkzM1FQME01RlM=",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8000/user/o/noexist/callback",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/o/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"o",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

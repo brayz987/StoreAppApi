@@ -81,7 +81,7 @@ $ python3 manage.py createsuperuser
 > Ir a: [http://127.0.0.1:8000/secret](http://127.0.0.1:8000/secret) para acceder la panel de administración del proyecto
 
 ### Uso de la API
-Para poder probar la api del proyecto deberás instalar [Postman](https://www.postman.com/downloads/) e importar la [colección de MELI](./others/MELI.postman_collection.json). Y definir un entorno 
+Para poder probar la api del proyecto deberás instalar [Postman](https://www.postman.com/downloads/) e importar las colecciones correspondientes las cuales estan ubicadas en la carpeta [./others/collections/](./others/collections/). 
 En esta colección encontrarás todos los request necesarios para hacer pruebas locales de la app.
 
 :bulb: Los endpoints de CART y PRODUCTS cuentan con la configuracion estandar de ModelViewSet de DRF, por lo cual aceptan request GET, POST, PUT, PATH, DELETE
