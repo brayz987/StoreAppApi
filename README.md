@@ -49,10 +49,14 @@ $(env) pip install -r requirements.txt
 
 ```sh
 DEBUG=True --> Habilitacion del modo Debug de Django
-DATABASE_URL=postgres://username:password@host:port/dbname -> Aqui se puede usar cualquier sentencia para base de datos del paquete dj-database-url ver mas:  [https://pypi.org/project/dj-database-url/](dj-database-url)
+DATABASE_URL=postgres://username:password@host:port/dbname -> Sentencia de conexion de la Base de Datos
 DJANGO_LOG_LEVEL=INFO --> Nivel de Log en Django recomentado INFO
 ROOT_LOG_LEVEL=DEBUG --> Nivel de Log de python recomentado DEBUG en entorno local para visualizar
 ```
+
+> En el proyecto se puede utilizar cualquier base de datos relacional permitidad por Django, actualmente esta configurado para Postgresql 
+> En caso de usar otro motor se debe de instalar las librerias necesarias y cambiar la sentencia segun los esquemas de la libreria dj-database-url. 
+> Para ver mas visite el siguiente enlace:  [dj-database-url](https://pypi.org/project/dj-database-url/)
 
 Uso de variable de entorno en entorno local
 
