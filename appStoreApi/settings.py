@@ -48,7 +48,8 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'oauth2_provider',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
 ]
 
 LOCAL_APPS = [
@@ -62,6 +63,8 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -229,3 +232,11 @@ DATABASES['default'] =  db_from_env
 
 
 AUTH_USER_MODEL="user.CustomUserModel"
+
+
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:4200',
+    'http://127.0.0.1:4200',
+    'http://127.0.0.1:5432',
+]
