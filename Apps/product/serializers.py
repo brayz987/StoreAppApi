@@ -28,12 +28,16 @@ class ProductSerializer(serializers.ModelSerializer):
         return fields
     
     def create(self, validated_data):
-        uploaded_images = validated_data.pop("uploaded_images")
+        uploaded_images = None
+        if "uploaded_images" in validated_data:
+            uploaded_images = validated_data.pop("uploaded_images")
+
         product = super().create(validated_data)
 
-        for image in uploaded_images:
-            ProductImage.objects.create(product=product, image=image)
-
+        if uploaded_images:
+            for image in uploaded_images:
+                ProductImage.objects.create(product=product, image=image)
+                
         return product
 
 
