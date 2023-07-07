@@ -7,5 +7,6 @@ router.register(r'detail', CartView, basename="cart")
 router.register(r'history', HistoryView, basename="history")
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('generateJson/', GenerateHistoryView.as_view())
 ]
