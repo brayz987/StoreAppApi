@@ -28,10 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-87un8u%b6cw7!3vi+pnz4kx@6yly5o$&^gn#5$53m*th@4h*qt'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(' ')
 
 
 # Application definition
@@ -197,7 +194,7 @@ LOGGING = {
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
+    'PAGE_SIZE': 12,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     ),
@@ -222,7 +219,7 @@ STORAGES = {
     
 }
 
-DEBUG = bool(os.environ['DEBUG'].lower() == "true")
+DEBUG = bool(os.getenv('DEBUG').lower() == "true")
 
 import dj_database_url
 
@@ -235,8 +232,4 @@ AUTH_USER_MODEL="user.CustomUserModel"
 
 
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:4200',
-    'http://127.0.0.1:4200',
-    'http://127.0.0.1:5432',
-]
+CORS_ORIGIN_WHITELIST = os.getenv("CORS_ORIGIN_WHITELIST").split(" ")
