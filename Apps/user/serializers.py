@@ -2,8 +2,14 @@ from rest_framework import serializers
 from .models import CustomUserModel
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth.models import Group
 
 
+class UserGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Group
+        fields = ["name"]
+        
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
             required=True,
@@ -11,10 +17,11 @@ class UserSerializer(serializers.ModelSerializer):
             )
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
     password2 = serializers.CharField(write_only=True, required=True)
+    groups = UserGroupSerializer(many=True, read_only=True)
 
     class Meta:
         model = CustomUserModel
-        fields = ('username', 'password', 'password2', 'email', 'first_name', 'last_name', 'address')
+        fields = ('username', 'password', 'password2', 'email', 'first_name', 'last_name', 'address','groups')
         extra_kwargs = {
             'first_name': {'required': True},
             'last_name': {'required': True}
@@ -39,6 +46,11 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
 
+        try:
+            default_group = Group.objects.get(name="customer")
+            default_group.user_set.add(user)
+        except Exception as error:
+            print(error)
         return user
     
 
